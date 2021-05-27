@@ -1,4 +1,5 @@
 const express = require('express');
+require("dotenv").config();
 const path = require('path');
 
 const cookieParser = require('cookie-parser');
@@ -9,7 +10,7 @@ const usersRouter = require('./routes/users');
 const groceryRouter = require('./routes/grocery');
 const cors = require("cors");
 
-mongoose.connect("mongodb+srv://datagrocery:1234@grocerydata.j7ntn.mongodb.net/grocery?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGOURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
